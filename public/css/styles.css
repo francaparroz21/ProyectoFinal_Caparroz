@@ -92,20 +92,21 @@ footer {
 }
 
 footer {
-    margin-top: 1px;
-    padding: 25px;
+    padding: 50px;
     display: flex;
-    justify-content: center;
+    justify-content: end;
 }
 
 footer div a {
     width: 80px;
     padding-left: 20px;
     overflow: hidden;
+    position: relative;
+    top: 30px;
 }
 
 footer div a img {
-    width: 40px;
+    width: 30px;
 }
 
 footer div a img:hover {
@@ -134,24 +135,23 @@ nav>* {
     text-align: center;
 }
 
-#products {
+#divProducts {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-#products>div {
+#divProducts>div {
     width: 300px;
     padding: 30px;
     height: 600px;
-    border: 1px solid whitesmoke;
 }
 
-#products>div > * {
+#divProducts>div > * {
     padding: 5px;
 }
 
-#products>p {
+#divProducts>p {
     padding: 10px;
 }
 

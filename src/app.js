@@ -1,17 +1,11 @@
 //Funcion para printear productos
 function printProducts() {
+    const div = document.createElement("div");
+    div.setAttribute("id", "divProducts")
+    div.setAttribute("class", "container")
+    document.getElementById("main").append(div)
     for (let i = 0; i < arrayProducts.length; i++) {
-        if (i == 0) {
-            const div = document.createElement("div");
-            div.setAttribute("id", "divProducts")
-            div.setAttribute("class", "container")
-            div.innerHTML = "<h2 id='h2Products'>Products</h2>";
-            const products = document.createElement("div")
-            products.setAttribute("id", "products")
-            products.setAttribute("class", "container-fluid")
-            div.append(products)
-            document.getElementById("main").append(div)
-        }
+
         const idProduct = arrayProducts[i].id
         const nameProduct = arrayProducts[i].name
         const descProduct = arrayProducts[i].description
@@ -25,6 +19,6 @@ function printProducts() {
                                    <p>Description: ${descProduct}</p>
                                    <p>Price: $${priceProduct}</p>
                                    <button id='${idProduct}' class='addToCart btn btn-light' type='button'>Add to Cart</button>`
-        document.getElementById("products").append(appendProduct)
+        document.getElementById("divProducts").append(appendProduct)
     }
 }
