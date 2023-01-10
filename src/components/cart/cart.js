@@ -11,7 +11,7 @@ const validationRepeatedProduct = (productId) =>{
     }
 }
 
-//Funcion para printar los productos del carrito.
+//Funcion para printear los productos del carrito.
 const printCartProduct = (product) => {
 
 }

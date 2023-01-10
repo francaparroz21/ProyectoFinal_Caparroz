@@ -22,3 +22,62 @@ function printProducts() {
         document.getElementById("divProducts").append(appendProduct)
     }
 }
+
+//Eventos para cada uno de los botonees (add to cart).Agrega un producto al carrito (localstorage)
+function addEventsCartButtons() {
+    const addToCartButtons = document.getElementsByClassName("addToCart")
+
+    for (let i = 0; i < addToCartButtons.length; i++) {
+        addToCartButtons[i].addEventListener("click", (e) => {
+            const idProduct = e.target.id
+            const product = findById(idProduct)
+
+            if (localStorage.getItem(idProduct) == null) {
+                localStorage.setItem(idProduct, JSON.stringify(product))
+
+                productAddedToast()
+
+                //Boton eliminar que se agrega en el DOM
+                const deletAnyProduct = document.createElement("div")
+                deletAnyProduct.setAttribute("class", "divDeleteProduct")
+                deletAnyProduct.innerHTML = `<button id='delete${idProduct}' class='deleteProductButton btn btn-danger'>Delete</button>`
+                document.getElementById("product" + idProduct).append(deletAnyProduct)
+
+                //Evento para el boton de eliminar, que si se toca, se elimina dicho boton y el producto del localstorage
+                document.getElementById("delete" + idProduct).addEventListener("click", () => {
+                    localStorage.removeItem(idProduct)
+                    deletAnyProduct.remove()
+                })
+
+            } else {
+                productAlreadyAddedToast()
+            }
+        })
+    }
+}
+
+//Funcion que printea un Toast, si el producto ya esta agregado al carrito.
+function productAlreadyAddedToast() {
+    Toastify({
+        text: "Product already added to cart!",
+        duration: "3000",
+        backgroundColor: "red"
+    }).showToast()
+}
+
+//Funcion que printea un Toast, si el producto se agrego correctamente.
+function productAddedToast() {
+    Toastify({
+        text: "Product added to cart!",
+        duration: "3000",
+        backgroundColor: "green",
+    }).showToast()
+}
+
+//Funcion para buscar productos por id. Devuelve un solo objeto ya que el id es unico e incremental.
+function findById(idFind) {
+    for (let i = 0; i < arrayProducts.length; i++) {
+        if (arrayProducts[i].id == idFind) return arrayProducts[i];
+    }
+    return "Not found";
+}
