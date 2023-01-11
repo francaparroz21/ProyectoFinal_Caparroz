@@ -46,8 +46,7 @@
           </div>
         </div>
         <div class="navbar-right">
-          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
-            aria-controls="offcanvasScrolling">Enable body scrolling</button>
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">CART</button>
         </div>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#collapse_items">
           <span class="navbar-toggler-icon">
@@ -62,13 +61,12 @@
     <!-- MAIN -->
     <main id="main">
 
-      <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
-        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
         <div class="offcanvas-header">
-         <h5 class="cart-tittle">CART</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          <h2 class="offcanvas-title" id="offcanvasWithBackdropLabel">CART</h2>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-main" id="cartProductsContainer">
+        <div class="offcanvas-body" id="cartProductsContainer">
           
         </div>
       </div>

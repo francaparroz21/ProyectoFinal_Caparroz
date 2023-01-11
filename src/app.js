@@ -32,10 +32,10 @@ function addEventsCartButtons() {
             const idProduct = e.target.id
             const product = findById(idProduct)
 
+            validationRepeatedProduct(idProduct)
             if (localStorage.getItem(idProduct) == null) {
                 localStorage.setItem(idProduct, JSON.stringify(product))
 
-                printCartProduct(product)
                 productAddedToast()
 
 

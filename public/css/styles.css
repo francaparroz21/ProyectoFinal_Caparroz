@@ -194,3 +194,23 @@ nav>* {
 .divDeleteProduct{
     display: inline;
 }
+#offcanvasWithBackdropLabel{
+    margin: auto;
+}
+
+
+.divProductCart{
+    padding: 20px;
+}
+
+.divProductCartFlex{
+    display: flex;
+}
+
+.nameProductCart{
+    text-align: center;
+}
+
+.productCart{
+    width: 120px;
+}
