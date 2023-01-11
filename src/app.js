@@ -35,7 +35,9 @@ function addEventsCartButtons() {
             if (localStorage.getItem(idProduct) == null) {
                 localStorage.setItem(idProduct, JSON.stringify(product))
 
+                printCartProduct(product)
                 productAddedToast()
+
 
                 //Boton eliminar que se agrega en el DOM
                 const deletAnyProduct = document.createElement("div")

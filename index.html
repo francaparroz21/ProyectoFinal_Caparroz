@@ -13,7 +13,7 @@
     type="text/css" />
 
   <!-- LINKS CSS -->
-  <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/bootstrap/bootstrap.css">
   <link rel="stylesheet" href="/public/css/styles.css">
   <!-- CDN SWEETALERT -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -26,8 +26,9 @@
 </head>
 
 <!-- BODY -->
+
 <body>
-    <!-- HEADER -->
+  <!-- HEADER -->
   <header>
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-md">
@@ -44,6 +45,10 @@
             </ul>
           </div>
         </div>
+        <div class="navbar-right">
+          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling"
+            aria-controls="offcanvasScrolling">Enable body scrolling</button>
+        </div>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#collapse_items">
           <span class="navbar-toggler-icon">
           </span>
@@ -57,7 +62,16 @@
     <!-- MAIN -->
     <main id="main">
 
-
+      <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+        id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header">
+         <h5 class="cart-tittle">CART</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-main" id="cartProductsContainer">
+          
+        </div>
+      </div>
     </main>
     <!-- FOOTER -->
     <footer class="container-fluid">
@@ -67,8 +81,9 @@
             src="/public/images/logo_instagram.jpg"></a></div>
       <div><a class="email_logo" href=""><img src="/public/images/email_logo.png"></a></div>
     </footer>
+    <script src="/public/bootstrap/bootstrap.js"></script>
     <script src="./src/components/data/stock.js"></script>
-    <script src="./src/components/cart/modal.js"></script>
+    <script src="./src/components/cart/cart.js"></script>
     <script src="./src/app.js"></script>
     <script src="./src/index.js"></script>
   </body>
