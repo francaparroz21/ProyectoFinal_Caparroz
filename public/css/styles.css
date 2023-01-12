@@ -191,8 +191,9 @@ nav>* {
     background-color: red;
 }
 
-.divDeleteProduct{
-    display: inline;
+.interactionButtonsCart{
+    display: flex;
+    justify-content: space-evenly;
 }
 #offcanvasWithBackdropLabel{
     margin: auto;

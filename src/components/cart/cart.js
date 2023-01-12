@@ -15,7 +15,7 @@ function printPriceTotal() {
     container.append(div)
 }
 
-function updateCartCount(){
+function updateCartCount() {
     const cartCount = document.getElementById("cartCount")
     cartCount.innerText = cart.length
 }
@@ -81,7 +81,7 @@ const printCartProduct = (product) => {
     div.setAttribute("id", "divProductCart" + product.id)
     div.innerHTML = `
     <h4 class='nameProductCart'> ${product.name}</h4 >
-        <div class='divProductCartFlex'>
+        <div class='divProductCartFlex' id='divProductCart'>
             <div class ='divProductCartLeft'>
             <img class='productCart' src='${product.urlImg}'>
             </div>
@@ -89,12 +89,39 @@ const printCartProduct = (product) => {
             <p>Description: ${product.description}</p>
             <p id='priceProduct${product.id}'>Price: $${product.price}</p>
             <p id='amountProduct${product.id}'>Amount: ${product.amount}</p>
-            <div class='divDeleteCartProduct' ><button id='deleteProductCart${product.id}' class='btn btn-danger' type='button'>Delete</button></div>
+            <div class='interactionButtonsCart'>
+            <div id='divDeleteAmount${product.id}'>
+            </div>
+            <button class='btn btn-light' id='addProduct${product.id}'>+</button>
+            <button id='deleteProductCart${product.id}' class='btn btn-danger deleteProductCartButton' type='button'>Delete</button>
+            </div>
             </div>
         </div>
         <hr style='color:black'>
             `
     cartContainer.appendChild(div)
+    if (document.getElementById("deleteAmountProduct" + product.id) == null && product.amount > 1) {
+        const deleteAmountProduct = document.createElement("button")
+        deleteAmountProduct.setAttribute("class", "btn btn-danger")
+        deleteAmountProduct.setAttribute("id", "deleteAmountProduct" + product.id)
+        deleteAmountProduct.innerText = "-"
+        document.getElementById("divDeleteAmount" + product.id).append(deleteAmountProduct)
+
+        //Evento para eliminar -1 en cantidad de productos.
+        document.getElementById("deleteAmountProduct" + product.id).addEventListener("click", () => {
+            product.amount--
+            saveCartToStorage(cart)
+            updateCart()
+            if(product.amount == 1)document.getElementById("deleteAmountProduct"+product.id).remove()
+        })
+    }
+
+    //Evento para el boton "+" que agrega +1 en cantidad.
+    document.getElementById("addProduct" + product.id).addEventListener("click", () => {
+        product.amount++
+        saveCartToStorage(cart)
+        updateCart()
+    })
 
     //Evento delete en cada producto del carrito
     document.getElementById("deleteProductCart" + product.id).addEventListener("click", (e) => {
@@ -102,12 +129,13 @@ const printCartProduct = (product) => {
         saveCartToStorage(cart)
         updateCart()
         updateCartCount()
+
     })
 
     //Agregamos scrollbar al modal offcanvas
     document.getElementById("cartProductsContainer").setAttribute("scroll", true)
-
-
 }
+
+
 
 

@@ -30,7 +30,6 @@ function addEventsCartButtons() {
     for (let i = 0; i < addToCartButtons.length; i++) {
         addToCartButtons[i].addEventListener("click", (e) => {
             const idProduct = e.target.id
-            const product = findById(idProduct)
 
             validationRepeatedProduct(idProduct)
             productAddedToast()
