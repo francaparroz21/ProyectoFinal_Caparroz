@@ -46,7 +46,7 @@
           </div>
         </div>
         <div class="navbar-right">
-          <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">CART</button>
+          <a id='cartIconToggle'type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop"><img id="cartIcon" src="./public/images/trolley-cart.png"><span id="cartCount">0</span></a>
         </div>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#collapse_items">
           <span class="navbar-toggler-icon">
@@ -66,6 +66,7 @@
           <h2 class="offcanvas-title" id="offcanvasWithBackdropLabel">CART</h2>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+        <hr style="color: black;">
         <div class="offcanvas-body" id="cartProductsContainer">
           
         </div>

@@ -214,3 +214,25 @@ nav>* {
 .productCart{
     width: 120px;
 }
+
+#totalBuyPrice{
+    text-align: center;
+}
+
+.offcanvas{
+    background: rgb(85,15,69);
+background: linear-gradient(90deg, rgba(85,15,69,1) 0%, rgba(89,50,86,1) 100%);
+}
+
+#cartCount{
+    color: #8699A5;
+}
+
+#cartIcon{
+    width: 40px;
+    filter: invert(25%);
+}
+
+#cartIconToggle{
+    padding-right: 20px;
+}

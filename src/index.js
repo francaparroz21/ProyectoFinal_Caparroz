@@ -2,4 +2,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     printProducts()
     addEventsCartButtons();
+
+    if(localStorage.getItem("cart")) {
+        cart = getCartToStorage()
+        updateCart()
+        updateCartCount()
+    }
 })
