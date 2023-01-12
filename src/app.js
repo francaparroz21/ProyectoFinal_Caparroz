@@ -13,12 +13,15 @@ function printProducts() {
         const urlImg = arrayProducts[i].urlImg
 
         const appendProduct = document.createElement("div")
+        appendProduct.setAttribute("class","sectionProduct")
         appendProduct.setAttribute("id", "product" + idProduct)
         appendProduct.innerHTML = `<h4 class='nameProduct'>${nameProduct}</h4>
                                    <img class='imgProduct' src='${urlImg}'>
                                    <p>Description: ${descProduct}</p>
                                    <p>Price: $${priceProduct}</p>
-                                   <button id='${idProduct}' class='addToCart btn btn-light' type='button'>Add to Cart</button>`
+                                   <div class='addToCartFlex'>
+                                   <button id='${idProduct}' class='btn btn-outline-success addToCart' type='button'>Add to Cart</button>
+                                   </div>`
         document.getElementById("divProducts").append(appendProduct)
     }
 }
@@ -30,6 +33,7 @@ function addEventsCartButtons() {
     for (let i = 0; i < addToCartButtons.length; i++) {
         addToCartButtons[i].addEventListener("click", (e) => {
             const idProduct = e.target.id
+
 
             validationRepeatedProduct(idProduct)
             productAddedToast()
@@ -52,6 +56,9 @@ function productAddedToast() {
         text: "Product added to cart!",
         duration: "3000",
         backgroundColor: "green",
+        offset: {
+            y: 50
+          },
     }).showToast()
 }
 
