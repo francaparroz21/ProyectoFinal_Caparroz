@@ -116,7 +116,7 @@ footer div a {
     padding-left: 20px;
     overflow: hidden;
     position: relative;
-    top: 30px;
+    top: 50px;
 }
 
 footer div a img {
@@ -171,8 +171,6 @@ nav>* {
 }
 
 #dateNow{
-    position: relative;
-    top: 30px;
     color: var(--linen);
 }
 
@@ -195,6 +193,11 @@ nav>* {
 
 .nameProduct{
     text-align: center;
+}
+
+#pDate{
+    position: relative;
+    top: 50px;
 }
 
 .imgProduct{

@@ -101,7 +101,5 @@ setInterval(()=>{
     const minutes = dateNow.getMinutes()
     const seconds = dateNow.getSeconds()
 
-    const divDate = document.createElement("div")
-    divDate.innerHTML = `<p id='dateNow'>Hour: ${hours}:${minutes}:${seconds}.</p>`
-    document.getElementById("footerId").append(divDate)
+    document.getElementById("divDate").innerHTML = `<p id='pDate'>Hour: ${hours}:${minutes}:${seconds}.</p>`
 },1000)
