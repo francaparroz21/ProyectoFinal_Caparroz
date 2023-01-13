@@ -1,11 +1,6 @@
 let cart = []
 
-function addProductsInLocalStorageInCart() {
-    if (localStorage.length > 0) {
-        for (let i = 0; i < localStorage.length; i++)cart.push(JSON.parse(localStorage.getItem(i + 1)))
-    }
-}
-
+//Funcion para printear el precio total
 function printPriceTotal() {
     const container = document.getElementById("cartProductsContainer")
     const div = document.createElement("div")
@@ -15,18 +10,20 @@ function printPriceTotal() {
     container.append(div)
 }
 
+//Funcion para actualizar contador
 function updateCartCount() {
     const cartCount = document.getElementById("cartCount")
     cartCount.innerText = cart.length
 }
 
 //Validacion de producto repetido.
-const validationRepeatedProduct = (productId) => {
+const validationRepeatedProduct = async (productId) => {
     const repeatedProduct = cart.find(product => product.id == productId)
+    const products = await homeController()
 
     if (!repeatedProduct) {
-        const product = arrayProducts.find(product => product.id == productId)
-        cart.push(product)
+        const productFinded = products.find(product => product.id == productId)
+        cart.push(productFinded)
         saveCartToStorage(cart)
         updateCart()
         updateCartCount()
@@ -38,6 +35,8 @@ const validationRepeatedProduct = (productId) => {
         saveCartToStorage(cart)
         updateCart()
     }
+
+
 }
 
 //Funcion para actualizar carrito
@@ -96,7 +95,7 @@ function printBuyAndDeleteAllButtons() {
                         icon: 'success',
                         title: 'Buy successful',
                         showConfirmButton: false,
-                      })
+                    })
                 }
             })
         }

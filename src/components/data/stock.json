@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "name": "Idraet Breast Volume 95+",
+        "description": "TRATAMIENTO VOLUMINIZADOR IDRAET BREAST VOLUME 95+.AUMENTO DEL BUSTO.",
+        "price": 3000.00,
+        "urlImg": "./public/images/breastvolume95.png",
+        "amount": 1,
+        "totalPrice": 3000.00
+    },
+    {
+        "id": 2,
+        "name": "Gel Flat Abs",
+        "description": "Gel acuoso de rápida absorción, formulado para reducción de adiposidad abdominal.",
+        "price": 2000.00,
+        "urlImg": "./public/images/gel_flat_abs.png",
+        "amount": 1,
+        "totalPrice": 2000.00
+    },
+    {
+        "id": 3,
+        "name": "Alpine Roses Mask",
+        "description": "Máscara reparadora y calmante. Revitaliza y regenera la piel mejorando su elasticidad y suavidad.",
+        "price": 2000.00,
+        "urlImg": "./public/images/mask_alpineroses.png",
+        "amount": 1,
+        "totalPrice": 2000.00
+    },
+    {
+        "id": 4,
+        "name": "Serum PersonalTrainer",
+        "description": "Imita los efectos del ejercicio físico, reafirmando brazos, piernas y abdomen.",
+        "price": 4700.00,
+        "urlImg": "./public/images/serum_personaltrainer.png",
+        "amount": 1,
+        "totalPrice": 4700.00
+    },{
+        "id": 5,
+        "name": "Celulitis Cellu Control",
+        "description": "Quema grasa almacenada y reduce Celulitis, mejora la elasticidad y firmeza de la piel.",
+        "price": 2600.00,
+        "urlImg": "./public/images/caps_cellucontrol.png",
+        "amount": 1,
+        "totalPrice": 2600.00
+    }
+]
