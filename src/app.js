@@ -93,7 +93,7 @@ function findById(idFind) {
     return "Not found";
 }
 
-//Intervalo asincronico que nos va a ir diciendo la fecha y hora.
+//Intervalo asincronico que nos va a ir diciendo la hora.
 setInterval(()=>{
     if(document.getElementById("dateNow")!=null)document.getElementById("dateNow").remove()
     const dateNow = new Date()
