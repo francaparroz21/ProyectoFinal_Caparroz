@@ -27,9 +27,9 @@ const validationRepeatedProduct = (productId) => {
     if (!repeatedProduct) {
         const product = arrayProducts.find(product => product.id == productId)
         cart.push(product)
+        saveCartToStorage(cart)
         updateCart()
         updateCartCount()
-        saveCartToStorage(cart)
     } else {
         const amountProduct = document.getElementById("amountProduct" + productId)
         amountProduct.innerText = "Amount: " + repeatedProduct.amount++
@@ -43,11 +43,93 @@ const validationRepeatedProduct = (productId) => {
 //Funcion para actualizar carrito
 function updateCart() {
     document.getElementById("cartProductsContainer").innerHTML = ""
-    cart.forEach(element => {
-        printCartProduct(element)
-    });
-    printPriceTotal()
+    if (cart.length > 0) {
+        for (let i = 0; i < cart.length; i++) {
+            printCartProduct(cart[i])
+        }
+        printPriceTotal()
+        printBuyAndDeleteAllButtons()
+    } else {
+        printPriceTotal()
+    }
 }
+
+function printBuyAndDeleteAllButtons() {
+    const hr = document.createElement("hr")
+    hr.style.color = "black";
+    document.getElementById("cartProductsContainer").append(hr)
+    const div = document.createElement("div")
+    div.setAttribute("id", "buyAndDeleteAllButtons")
+    div.innerHTML = `<button class='btn btn-success' id='buyAllProductsButton'>Buy</button>
+    <button class='btn btn-danger' id='deleteAllButton'>Delete All</button>
+    `
+    document.getElementById("cartProductsContainer").appendChild(div)
+
+    //Evento para boton Buy
+    document.getElementById("buyAllProductsButton").addEventListener("click", () => {
+        if (cart.length > 0) {
+            resetValuesProducts()
+            cart = []
+            saveCartToStorage(cart)
+            updateCart()
+
+            //ALERT
+            let timerInterval
+            Swal.fire({
+                title: 'Buy in process!',
+                html: '<b></b>',
+                timer: 2000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading()
+                    const b = Swal.getHtmlContainer().querySelector('b')
+                    timerInterval = setInterval(() => {
+                        b.textContent = Swal.getTimerLeft()
+                    }, 100)
+                },
+                willClose: () => {
+                    clearInterval(timerInterval)
+                }
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.timer) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Buy successful',
+                        showConfirmButton: false,
+                      })
+                }
+            })
+        }
+    })
+
+
+    //Evento para boton DeleteAll
+    document.getElementById("deleteAllButton").addEventListener("click", () => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't delete all Products!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete all.'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                resetValuesProducts()
+                cart = []
+                saveCartToStorage(cart)
+                updateCart()
+                updateCartCount()
+                Swal.fire(
+                    'Deleted!',
+                    'Your cart has been deleted.',
+                    'success'
+                )
+            }
+        })
+    })
+}
+
 
 //Funcion para guardar carrito
 const saveCartToStorage = (cart) => {
@@ -66,10 +148,6 @@ const updateTotalCartCount = (cart) => {
 
 const updateTotalCartPrice = (cart) => {
     return cart.reduce((count, item) => count + (item.price * item.amount), 0)
-}
-
-const printTotalCart = (totalCart, totalBuyPrice) => {
-
 }
 
 
@@ -110,30 +188,28 @@ const printCartProduct = (product) => {
         //Evento para eliminar -1 en cantidad de productos.
         document.getElementById("deleteAmountProduct" + product.id).addEventListener("click", () => {
             product.amount--
+            product.totalPrice = product.price * product.amount
             saveCartToStorage(cart)
             updateCart()
-            if(product.amount == 1)document.getElementById("deleteAmountProduct"+product.id).remove()
         })
     }
 
     //Evento para el boton "+" que agrega +1 en cantidad.
     document.getElementById("addProduct" + product.id).addEventListener("click", () => {
         product.amount++
+        product.totalPrice = product.price * product.amount
         saveCartToStorage(cart)
         updateCart()
     })
 
     //Evento delete en cada producto del carrito
     document.getElementById("deleteProductCart" + product.id).addEventListener("click", (e) => {
+        resetValuesProducts()
         cart.splice(cart.indexOf(product), cart.indexOf(product) + 1)
         saveCartToStorage(cart)
         updateCart()
         updateCartCount()
-
     })
-
-    //Agregamos scrollbar al modal offcanvas
-    document.getElementById("cartProductsContainer").setAttribute("scroll", true)
 }
 
 

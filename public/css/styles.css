@@ -235,6 +235,7 @@ nav>* {
 
 #totalBuyPrice{
     text-align: center;
+    padding-bottom: 15px;
 }
 
 .offcanvas{
@@ -252,5 +253,15 @@ background: linear-gradient(90deg, rgba(85,15,69,1) 0%, rgba(89,50,86,1) 100%);
 }
 
 #cartIconToggle{
-    padding-right: 20px;
+    padding: 10px;
+    border-radius: 28px;
+}
+
+#buyAndDeleteAllButtons{
+    display: flex;
+    justify-content: space-evenly;
+}
+#cartIconToggle:hover{
+    transition: all 0.5s;
+    background-color:#636060;
 }

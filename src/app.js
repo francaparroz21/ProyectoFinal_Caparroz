@@ -33,12 +33,30 @@ function addEventsCartButtons() {
     for (let i = 0; i < addToCartButtons.length; i++) {
         addToCartButtons[i].addEventListener("click", (e) => {
             const idProduct = e.target.id
+            const product = findById(e.target.id)
 
 
-            validationRepeatedProduct(idProduct)
-            productAddedToast()
+            if(productAlreadyAdded(idProduct)){
+                productAlreadyAddedToast()
+            }else{
+                productAddedToast()
+                validationRepeatedProduct(idProduct)
+            }
         })
     }
+}
+function resetValuesProducts(){
+    arrayProducts.forEach(element => {
+        element.amount = 1
+        element.totalPrice = element.price
+    });
+}
+
+function productAlreadyAdded(id){
+    const getCart = getCartToStorage(cart)
+    const repeatedProduct = getCart.find(product => product.id == id)
+    if(repeatedProduct)return true
+    return false
 }
 
 //Funcion que printea un Toast, si el producto ya esta agregado al carrito.
@@ -46,7 +64,10 @@ function productAlreadyAddedToast() {
     Toastify({
         text: "Product already added to cart!",
         duration: "3000",
-        backgroundColor: "red"
+        backgroundColor: "red",
+        offset: {
+            y: 110
+          },
     }).showToast()
 }
 
@@ -57,7 +78,7 @@ function productAddedToast() {
         duration: "3000",
         backgroundColor: "green",
         offset: {
-            y: 50
+            y: 110
           },
     }).showToast()
 }
