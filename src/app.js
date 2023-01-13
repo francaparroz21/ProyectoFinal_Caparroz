@@ -45,6 +45,7 @@ function addEventsCartButtons() {
         })
     }
 }
+//Funcion para resetear valores como cantidad y precio.
 function resetValuesProducts(){
     arrayProducts.forEach(element => {
         element.amount = 1
@@ -52,6 +53,7 @@ function resetValuesProducts(){
     });
 }
 
+//Funcion booleana que nos dice si el producto ya se agrego al carrito
 function productAlreadyAdded(id){
     const getCart = getCartToStorage(cart)
     const repeatedProduct = getCart.find(product => product.id == id)
@@ -90,3 +92,16 @@ function findById(idFind) {
     }
     return "Not found";
 }
+
+//Intervalo asincronico que nos va a ir diciendo la fecha y hora.
+setInterval(()=>{
+    if(document.getElementById("dateNow")!=null)document.getElementById("dateNow").remove()
+    const dateNow = new Date()
+    const hours = dateNow.getHours()
+    const minutes = dateNow.getMinutes()
+    const seconds = dateNow.getSeconds()
+
+    const divDate = document.createElement("div")
+    divDate.innerHTML = `<p id='dateNow'>Hour: ${hours}:${minutes}:${seconds}.</p>`
+    document.getElementById("footerId").append(divDate)
+},1000)

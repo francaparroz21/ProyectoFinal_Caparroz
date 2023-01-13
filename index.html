@@ -20,8 +20,6 @@
   <!-- TOASTIFY -->
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-  <!-- LUXON -->
-  <script src="https://cdn.jsdelivr.net/npm/luxon@3.1.1/build/global/luxon.min.js"></script>
   <title>Bossy | Inicio</title>
 </head>
 
@@ -46,7 +44,9 @@
           </div>
         </div>
         <div class="navbar-right">
-          <a id='cartIconToggle'type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop"><img id="cartIcon" src="./public/images/trolley-cart.png"><span id="cartCount">0</span></a>
+          <a id='cartIconToggle' type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop"
+            aria-controls="offcanvasWithBackdrop"><img id="cartIcon" src="./public/images/trolley-cart.png"><span
+              id="cartCount">0</span></a>
         </div>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#collapse_items">
           <span class="navbar-toggler-icon">
@@ -61,24 +61,27 @@
     <!-- MAIN -->
     <main id="main">
 
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasWithBackdrop"
+        aria-labelledby="offcanvasWithBackdropLabel">
         <div class="offcanvas-header">
           <h2 class="offcanvas-title" id="offcanvasWithBackdropLabel">CART</h2>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <hr style="color: black;">
         <div class="offcanvas-body" id="cartProductsContainer">
-          
+
         </div>
       </div>
     </main>
     <!-- FOOTER -->
-    <footer class="container-fluid">
-      <div><a class="facebook_logo" href="">
-          <img src="./public/images/facebook_logo.png"></a></div>
-      <div><a class="instagram_logo" href="https://www.instagram.com/bossy.skincare/"><img
-            src="./public/images/logo_instagram.jpg"></a></div>
-      <div><a class="email_logo" href=""><img src="./public/images/email_logo.png"></a></div>
+    <footer class="container-fluid" id="footerId">
+      <div class="socialNetworks">
+        <div><a class="facebook_logo" href="">
+            <img src="./public/images/facebook_logo.png"></a></div>
+        <div><a class="instagram_logo" href="https://www.instagram.com/bossy.skincare/"><img
+              src="./public/images/logo_instagram.jpg"></a></div>
+        <div><a class="email_logo" href=""><img src="./public/images/email_logo.png"></a></div>
+      </div>
     </footer>
     <script src="/public/bootstrap/bootstrap.js"></script>
     <script src="./src/components/data/stock.js"></script>

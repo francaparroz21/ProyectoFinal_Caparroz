@@ -104,7 +104,11 @@ footer {
 footer {
     padding: 50px;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
+}
+
+.socialNetworks{
+    display: flex;
 }
 
 footer div a {
@@ -164,6 +168,12 @@ nav>* {
 
 #divProducts>p {
     padding: 10px;
+}
+
+#dateNow{
+    position: relative;
+    top: 30px;
+    color: var(--linen);
 }
 
 .added {
