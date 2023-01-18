@@ -136,7 +136,7 @@ const saveCartToStorage = (cart) => {
 }
 
 //Funcion para obtener carrito del storage
-const getCartToStorage = (cart) => {
+const getCartToStorage = () => {
     return JSON.parse(localStorage.getItem("cart"))
 }
 

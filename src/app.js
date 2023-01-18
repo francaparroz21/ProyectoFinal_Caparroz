@@ -71,7 +71,7 @@ const resetValuesProducts = async () => {
 
 //Funcion booleana que nos dice si el producto ya se agrego al carrito
 function productAlreadyAdded(id) {
-    const getCart = getCartToStorage(cart)
+    const getCart = getCartToStorage()
     const repeatedProduct = getCart.find(product => product.id == id)
     if (repeatedProduct) return true
     return false
