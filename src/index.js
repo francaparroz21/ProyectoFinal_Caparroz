@@ -2,11 +2,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     //Agregamos scrollbar al modal offcanvas
     document.getElementById("cartProductsContainer").setAttribute("scroll", true)
-    printProducts()
 
-    if(localStorage.getItem("cart")) {
+    printProducts()
+    
+    
+    if (localStorage.getItem("cart")) {
         cart = getCartToStorage()
         updateCart()
         updateCartCount()
     }
+
 })
