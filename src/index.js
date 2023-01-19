@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         cart = getCartToStorage()
         updateCart()
         updateCartCount()
+    }else{
+        cart = []
     }
 
 })
