@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCart()
         updateCartCount()
     }else{
-        cart = []
+        const cartEmpty = []
+        saveCartToStorage(cartEmpty)
     }
 
 })
